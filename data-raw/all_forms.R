@@ -2,7 +2,7 @@
 
 library(tidyverse)
 library(reformR)
-library(DataEDU)
+#library(DataEDU)
 library(magrittr)
 
 
