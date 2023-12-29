@@ -247,10 +247,15 @@ reform_tib <- function (df) {
 
   updated <- df %>%
     unnest(metadata) %>%
-    dplyr::mutate (output = purrr::map2(raw_df, form_name_version, get_form_reform, .progress = "text"),
+    dplyr::mutate (output = purrr::map2(raw_df,
+                                        form_name_version,
+                                        get_form_reform,
+                                        .progress = "text"),
                    update_needed_form = FALSE) %>%
     tidyr::unnest(output) %>%
     nest_metadata()
+
+  return (updated)
 
 }
 
